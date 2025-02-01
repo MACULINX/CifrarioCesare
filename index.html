@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifraio Cesare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="/js/cifrario.js"></script>
+    <script src="/js/utils.js"></script>
+</head>
+
+<body>
+    <div class="container mt-3">
+        <h3>Cifrario di Cesare online</h3>
+        <p>Questo tool esegue una codifica del testo usando il codice di cifratura di Cesare. Basta scrivere un testo e
+            una chiave numerica da 0 a 25</p>
+
+        <div>
+            <form id="formCifrario">
+                <div class="mb-3">
+                    <strong><label for="inputText" class="form-label">Digita un testo in chiaro (Massimo 1000 caratteri)</label></strong>
+                    <textarea id="inputText" maxlength="1000" class="w-100 form-control" ></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputChiave" class="form-label">Digita una chiave da 0 a 25</label>
+                    <br>
+                    <input type="number" id="inputChiave"class="form-control" max="25" min="0" value="0" onchange="checkChiave(this.value)">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Seleziona il tipo di operazione da eseguire</label>
+                    <br>
+
+                    <input type="radio" id="inputCodifica" name="tipo" value="C" class="form-check-input"  checked>
+                    <label for="inputCodifica" class="form-check-label">Codifica</label>
+
+                    <input type="radio" id="inputDecodifica" name="tipo" value="D" class="form-check-input">
+                    <label for="inputDecodifica" class="form-check-label">Decodifica</label>
+                </div>
+
+                <div class="mb-3">
+                    <button type="button" onclick="mostraModal()" class="btn btn-primary">Elabora dati</button>
+                </div>
+            </form>
+
+            <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="labelResult" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="labelResult"></h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="result">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
