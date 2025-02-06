@@ -34,3 +34,19 @@ function mostraErrore(s)
 
     modal.show();
 }
+
+function cambiaTema(value)
+{
+    if(value)
+    {
+        document.body.setAttribute('data-bs-theme', 'dark');
+        document.getElementById("brightness-icon").className = "bi-moon";  
+    }
+    else
+    {
+        document.body.setAttribute('data-bs-theme', 'light');
+        document.getElementById("brightness-icon").className = "bi-sun";  
+    }
+        
+
+}
